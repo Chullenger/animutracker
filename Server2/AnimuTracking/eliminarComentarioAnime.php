@@ -3,20 +3,11 @@
 require 'database.php';
 
 // Extract, validmanga and sanitize the idmanga.
-$idanime = $_POST['idanime'];
+$idcom = $_POST['idcomen'];
 session_start();
-$idusuario = $_POST['idusuario'];
 
-echo $idanime;
-echo "------";
-echo $idusuario;
-if(!$idanime)
-{
-  return http_response_code(400);
-}
 
-// Delete.
-$sql = "DELETE FROM `ve` WHERE `idanime` ='{$idanime}' && `idusuario` = '{$idusuario}' LIMIT 1";
+$sql = "DELETE FROM `comentario` WHERE `idcomentario` ='{$idcom}' LIMIT 1";
 
 if(mysqli_query($con, $sql))
 {

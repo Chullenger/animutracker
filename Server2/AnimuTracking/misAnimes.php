@@ -39,7 +39,7 @@
         {
           http_response_code(404);
         }
-      $anime[$i]['sess']=$iduser;
+      $animeDatas[$i]['sess']=$iduser;
       $animeDatas[$i]['ngenero'] = $genres;
       $animeDatas[$i]['animadora']    = $row['nombre_anima'];
       $animeDatas[$i]['autor'] = $row['nombre_aut']. " ".$row['apellido_aut'];
