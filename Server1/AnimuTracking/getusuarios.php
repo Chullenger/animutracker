@@ -37,6 +37,7 @@
     $_SESSION['ID'] = $usersDatas[0]['idusuario'];
     $_SESSION['Nombre'] = $usersDatas[0]['nombre'];
     $_SESSION['Correo'] = $usersDatas[0]['correo'];
+    $_SESSION['Password'] = $usersDatas[0]['contraseña'];
     header('Location: http://25.90.246.130:8080/htmls/allMangas.php');
     exit;
   }

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <title>Test</title>
+        <title>Animu Tracker</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-
         <script>
   function showMangas(sel) {
   var obj, dbParam, xmlhttp, myObj, x, txt = "",res= [],u,bool=false;
@@ -20,8 +19,8 @@
       txt += "<table border='1' class = \"table table-bordered\">"
       for (x in myObj) {
         txt += "<tr>";
-        txt += "<td><img src=\"http://25.90.246.130:8080/portadas/" + myObj[x].nombre + ".jpg\"></td>";
-        txt += "<td>" + myObj[x].nombre + "</br>" + "Sinopsis: " +myObj[x].sinopsis + "</br>" +  "Generos: "  +myObj[x].ngenero + "</br>" + "Capitulos: " + myObj[x].capitulos + "  Tomos: " + myObj[x].tomos + "</br>" + "Estreno: " + myObj[x].fecha_est + "  Fin: " + myObj[x].fecha_fin + "</br>" + "Calificacion: " + myObj[x].calif + "  Rating #" + myObj[x].rating +"</td>";
+        txt += "<td class=\"td_img\"><a href=\"myMangas.php\"><img src=\"http://25.90.246.130:8080/portadas/" + myObj[x].nombre + ".jpg\"></a></td>";
+        txt += "<td><p>" + myObj[x].nombre + "</br>" + "Sinopsis: " +myObj[x].sinopsis + "</br>" +  "Generos: "  +myObj[x].ngenero + "</br>" + "Capitulos: " + myObj[x].capitulos + "  Tomos: " + myObj[x].tomos + "</br>" + "Estreno: " + myObj[x].fecha_est + "  Fin: " + myObj[x].fecha_fin + "</br>" + "Calificacion: " + myObj[x].calif + "  Rating #" + myObj[x].rating +"</p></td>";
         res=myObj[x].lista.split(" ");
         for(u in res){
             if(res[u]==myObj[x].idmanga){
@@ -32,7 +31,7 @@
             txt += "<td><h5>Manga agregado<h5></td>";
             bool=false;
         }else{
-           txt += "<td><form id=\"sendDatas\" method=\"POST\" action=\"http://25.90.246.130:8080/addToList.php\">  <input type=\"text\" name=\"manga_idmanga\" value=\"" + myObj[x].idmanga + " \" hidden=\"true\"> <input type=\"text\" name=\"usuario_idusuario\" value=\"" + myObj[x].sess +"\" hidden=\"true\"> <input type=\"Submit\" value=\"Agregar a mi lista\"> </form></td>";
+           txt += "<td><form id=\"sendDatas\" method=\"POST\" action=\"http://25.90.246.130:8080/addToList.php\">  <input type=\"text\" name=\"manga_idmanga\" value=\"" + myObj[x].idmanga + " \" hidden=\"true\"> <input type=\"text\" name=\"usuario_idusuario\" value=\"" + myObj[x].sess +"\" hidden=\"true\"> <input type=\"Submit\" class= \"btn btn-primary btn-lg\" value=\"Agregar a mi lista\"> </form></td>";
       }
       txt += "</tr>";
     }
@@ -47,28 +46,33 @@
 window.onload = showMangas;
 </script>
 </head>
-<body>
-<div id="menu">
+
+<nav class="navbar navbar-dark bg-dark fixed-top" id="menu">
   <a href="allMangas.php">Lista de Mangas</a>
   <a href="myMangas.php">Mis Mangas</a>
   <a href="Animes.php">Lista de Animes</a>
   <a href="MisAnimes.php">Mis Animes</a>
-</div>
+</nav>
 
-<div id="user-info">
+<body>
+
+<div class="user-info">
   <p id="usr"></p>
+
   <?php
   session_start();
   $nombre = $_SESSION['Nombre'];
   $mail = $_SESSION['Correo'];
-  echo "<h4>".$mail."</h4><br>";
-  echo $nombre;  
+  echo "<h4>".$nombre."</h4><br>";
+  echo $mail;  
   ?>
-  </script>
+<br>
+  <a href="http://25.90.246.130:8080/htmls/editInfo.php">Gestion de Cuenta</a></br>
+  <a href="http://25.90.246.130:8080/cerrarSesion.php">Cerrar Sesión</a>
+
 </div>
 <?php
-  $id=$_SESSION['ID'];
-    echo $id;  
+  $id=$_SESSION['ID']; 
 ?>
 <div id="demo"></div>
 <script type="text/javascript">

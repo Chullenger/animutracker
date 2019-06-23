@@ -3,18 +3,22 @@
     <head>
       <link rel="icon" type="image/ico" href="../icons/icon.ico">
         <meta charset="utf-8">
-        <title>Formulario de Login</title>
+        <title>Animu Tracker - Login</title>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
         <link rel="stylesheet" href="htmls/css/estilos.css">
+
     </head>
     <body>
           <form class="LI_form" action="getusuarios.php" method="post">
               <h2 align="center">Ingresar</h2>
-              <input class="LI_in" type="text" placeholder="&#128272; Usuario" name="user">
-              <input class="LI_in" type="password" placeholder="&#128272; Contraseña" name="pass">
+              <input class="LI_in" type="text" class="form-control" placeholder="&#128272; Usuario" name="user">
+              <input class="LI_in" type="password" class="form-control" placeholder="&#128272; Contraseña" name="pass">
               <div class="btndiv">
-                <a  href="agregar.html"><button class= "LI_submit">Crear usuario</button></a>
                 <input class= "LI_submit" type="submit" value="Ingresar">
+                <a  href="htmls/agregarusuario.html"><button class= "LI_submit" type="submit" formaction="http://25.90.246.130:8080/htmls/agregarusuario.html">Crear usuario</button></a>
               </div>
           </form>
     </body>
